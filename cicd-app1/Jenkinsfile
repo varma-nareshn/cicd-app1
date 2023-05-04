@@ -45,21 +45,21 @@ pipeline {
     stage('Build-Docker-Image') {
       steps {
         container('docker') {
-          sh 'docker build -t testimage:latest .'
+          sh 'docker build -t testimage:v1 .'
         }
       }
     }
     stage('Login-Into-Docker') {
       steps {
         container('docker') {
-          sh 'docker login -u <docker_username> -p <docker_password>'
+          sh 'docker login -u var0761 -p Shooter@99'
       }
     }
     }
      stage('Push-Images-Docker-to-DockerHub') {
       steps {
         container('docker') {
-          sh 'docker push testimage:latest'
+          sh 'docker push testimage:v1'
       }
     }
      }
