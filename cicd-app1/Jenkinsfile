@@ -37,7 +37,7 @@ pipeline {
     stage('Build-Jar-file') {
       steps {
         container('maven') {
-          sh 'ls -lrt'
+          sh 'cd cicd-app1'
           sh 'mvn package'
         }
       }
