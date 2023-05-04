@@ -46,7 +46,9 @@ pipeline {
       steps {
         container('docker') {
           sh 'ls -ltr cicd-app1'
-          sh 'docker build  -f cicd-app1/Dockerfile -t testimage .'}
+          sh 'docker build  -f cicd-app1/Dockerfile -t testimage .'
+          sh 'docker tag testimage var0761/testimage:v1'
+        }
       }
     }
     stage('Login-Into-Docker') {
@@ -59,7 +61,7 @@ pipeline {
      stage('Push-Images-Docker-to-DockerHub') {
       steps {
         container('docker') {
-          sh 'docker push testimage'
+          sh 'docker push var0761/testimage:v1'
       }
     }
      }
