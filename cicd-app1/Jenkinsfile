@@ -45,7 +45,7 @@ pipeline {
     stage('Build-Docker-Image') {
       steps {
         container('docker') {
-          sh 'docker build -f cicd-app1/Dockerfile -t testimage:v1'
+          sh 'docker build -f cicd-app1/Dockerfile -t testimage'
         }
       }
     }
@@ -59,7 +59,7 @@ pipeline {
      stage('Push-Images-Docker-to-DockerHub') {
       steps {
         container('docker') {
-          sh 'docker push testimage:v1'
+          sh 'docker push testimage'
       }
     }
      }
