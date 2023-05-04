@@ -26,6 +26,9 @@ pipeline {
         '''
     }
   }
+  environment {     
+    DOCKERHUB_CREDENTIALS= credentials('dockern')     
+  } 
   stages {
     stage('Clone') {
       steps {
@@ -42,6 +45,7 @@ pipeline {
         }
       }
     }
+  
     stage('Build-Docker-Image') {
       steps {
         container('docker') {
@@ -54,7 +58,8 @@ pipeline {
     stage('Login-Into-Docker') {
       steps {
         container('docker') {
-          sh 'docker login -u var0761 -p Shooter@99'
+        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'                 
+	echo 'Login Completed'
       }
     }
     }
