@@ -45,7 +45,7 @@ pipeline {
     stage('Build-Docker-Image') {
       steps {
         container('docker') {
-          sh 'ls -ltr'
+          sh 'ls -ltr cicd-app1'
           sh 'docker build  -f cicd-app1/Dockerfile'
         }
       }
