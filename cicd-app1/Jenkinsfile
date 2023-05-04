@@ -38,7 +38,7 @@ pipeline {
       steps {
         container('maven') {
           sh 'cd cicd-app1'
-          sh 'mvn package'
+          sh 'mvn -f cicd-app1/pom.xml package'
         }
       }
     }
