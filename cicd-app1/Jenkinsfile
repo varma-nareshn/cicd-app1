@@ -30,7 +30,7 @@ pipeline {
     stage('Clone') {
       steps {
         container('maven') {
-          git branch: 'main', changelog: false, poll: false, url: 'https://github.com/varma-nareshn/cicd-app1.git'
+          git branch: 'main', changelog: false, poll: false, url: 'https://github.com/varma-nareshn/cicd-app1.git' , credentialsId: 'gitpat1'
         }
       }
     }  
