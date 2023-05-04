@@ -37,6 +37,7 @@ pipeline {
     stage('Build-Jar-file') {
       steps {
         container('maven') {
+          sh 'ls -lrt'
           sh 'mvn package'
         }
       }
