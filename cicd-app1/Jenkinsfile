@@ -45,7 +45,7 @@ pipeline {
     stage('Build-Docker-Image') {
       steps {
         container('docker') {
-          sh 'docker build -t testimage:v1 -f cicd-app1/Dockerfile'
+          sh 'docker build -f cicd-app1/Dockerfile -t testimage:v1'
         }
       }
     }
